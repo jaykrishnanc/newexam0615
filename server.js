@@ -23,13 +23,11 @@ app.use(session({resave: false,
 app.use(passport.initialize());
 app.use(passport.session());
 
-var user=require('./server/mongoose');
+require('./server/mongoose.js');
 
-app.post('/login',
-    passport.authenticate('local', { failureRedirect: '/login' }),
-    function(req, res) {
-        res.redirect('/#/exam');
-    });
+//require('./server/routes.js')(app);
+
+
 
 app.listen(2000,function(){
     console.log("Exam Portal Started on Port:2000")
